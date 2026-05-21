@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brasa — Modern Hearth Cuisine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav id="navbar">
+      <a class="nav-logo" href="#">Brasa</a>
+      <ul class="nav-links">
+        <li><a href="#about">Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <div
+      id="mobileMenu"
+      style="
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 8, 2, 0.97);
+        z-index: 99;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+      "
+    >
+      <a
+        href="#about"
+        style="
+          font-family: var(--serif);
+          font-size: 2.5rem;
+          font-weight: 300;
+          color: var(--cream);
+          text-decoration: none;
+        "
+        onclick="toggleMobileMenu()"
+        >Story</a
+      >
+      <a
+        href="#menu"
+        style="
+          font-family: var(--serif);
+          font-size: 2.5rem;
+          font-weight: 300;
+          color: var(--cream);
+          text-decoration: none;
+        "
+        onclick="toggleMobileMenu()"
+        >Menu</a
+      >
+      <a
+        href="#experience"
+        style="
+          font-family: var(--serif);
+          font-size: 2.5rem;
+          font-weight: 300;
+          color: var(--cream);
+          text-decoration: none;
+        "
+        onclick="toggleMobileMenu()"
+        >Experience</a
+      >
+      <a
+        href="#gallery"
+        style="
+          font-family: var(--serif);
+          font-size: 2.5rem;
+          font-weight: 300;
+          color: var(--cream);
+          text-decoration: none;
+        "
+        onclick="toggleMobileMenu()"
+        >Gallery</a
+      >
+    </div>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-pattern"></div>
+      <div class="hero-img-wrap">
+        <div class="hero-food-visual">
+          <div
+            class="hero-food-plate food-photo"
+            style="background-image: url('images/hero_plate_1779348602981.png')"
+          ></div>
+        </div>
+      </div>
+      <div class="hero-scroll-line"></div>
+
+      <div class="hero-tag">Open for Dinner · Tue–Sun</div>
+      <h1 class="hero-title">Fire.<br /><em>Flavour.</em><br />Soul.</h1>
+      <p class="hero-sub">
+        Where wood-fire craft meets the art of the table. An intimate space in
+        the heart of the city, serving modern hearth cuisine with ingredients
+        from local purveyors.
+      </p>
+      <div class="hero-actions">
+        <button
+          class="btn-ghost"
+          onclick="
+            scrollTo({
+              top: document.getElementById('menu').offsetTop,
+              behavior: 'smooth',
+            })
+          "
+        >
+          Explore Menu
+        </button>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-wrap">
+      <div class="marquee" id="marqueeInner"></div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-visual reveal">
+        <div
+          class="about-card food-photo"
+          style="background-image: url('images/about_fire_1779348635256.png')"
+        ></div>
+        <div
+          class="about-card-2 food-photo"
+          style="background-image: url('images/about_herbs_1779348853052.png')"
+        ></div>
+        <div class="about-badge">
+          <strong>12</strong>
+          <small>Years of Excellence</small>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <div>
+          <div class="section-label">Our Story</div>
+          <h2 class="section-title">
+            Born from <em>fire,</em><br />rooted in tradition
+          </h2>
+        </div>
+        <p>
+          Brasa began as a dream shared between two chefs on opposite sides of
+          the world — a vision of cooking that strips everything back to its
+          most primal, honest form. <strong>Fire. Smoke. Patience.</strong>
+        </p>
+        <p>
+          We source exclusively from farms within a 150-kilometre radius, from
+          producers we know by name. Each dish is a conversation between season
+          and flame, plated with quiet confidence.
+        </p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-num">150</span
+            ><span class="stat-label">km sourcing radius</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">3★</span
+            ><span class="stat-label">Recognition</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">24</span
+            ><span class="stat-label">Covers nightly</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu">
+      <div class="menu-header reveal">
+        <div>
+          <div class="section-label">Seasonal Menu</div>
+          <h2 class="section-title">Crafted from the <em>earth</em></h2>
+        </div>
+        <div class="menu-tabs">
+          <button class="menu-tab active" onclick="filterMenu('all', this)">
+            All
+          </button>
+          <button class="menu-tab" onclick="filterMenu('starters', this)">
+            Starters
+          </button>
+          <button class="menu-tab" onclick="filterMenu('mains', this)">
+            Mains
+          </button>
+          <button class="menu-tab" onclick="filterMenu('desserts', this)">
+            Desserts
+          </button>
+        </div>
+      </div>
+      <div class="menu-grid reveal" id="menuGrid"></div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" style="padding: 0">
+      <div class="exp-visual">
+        <div class="exp-visual-glow"></div>
+        <div class="exp-emoji-wrap">
+          <img
+            class="exp-photo"
+            src="images/exp_candle_1779348926611.png"
+            alt="Candlelit table at Brasa"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="exp-visual-text">The art of the table</div>
+        <div class="exp-visual-sub">An evening at Brasa</div>
+      </div>
+      <div class="exp-content reveal">
+        <div>
+          <div class="section-label">The Experience</div>
+          <h2 class="section-title">
+            Every detail<br />is <em>intentional</em>
+          </h2>
+        </div>
+        <div class="exp-list">
+          <div class="exp-item">
+            <div class="exp-num">01</div>
+            <div class="exp-item-body">
+              <div class="exp-item-title">Welcome & Aperitivo</div>
+              <div class="exp-item-desc">
+                Arrive to warm bread, house-cultured butter, and a glass of
+                natural wine selected to open the palate.
+              </div>
+            </div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-num">02</div>
+            <div class="exp-item-body">
+              <div class="exp-item-title">The Open Kitchen</div>
+              <div class="exp-item-desc">
+                Seats at the chef's counter offer a front-row view of the hearth
+                — the theatre of fire that defines everything we do.
+              </div>
+            </div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-num">03</div>
+            <div class="exp-item-body">
+              <div class="exp-item-title">Tasting Menu or À la Carte</div>
+              <div class="exp-item-desc">
+                Choose your journey: a guided 7-course exploration, or the
+                freedom to compose your own evening.
+              </div>
+            </div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-num">04</div>
+            <div class="exp-item-body">
+              <div class="exp-item-title">Wine & Natural Pairings</div>
+              <div class="exp-item-desc">
+                Our sommelier curates a list of biodynamic and natural wines,
+                each chosen to amplify the smoke and char of the kitchen.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="gallery-header reveal">
+        <div>
+          <div class="section-label">From the Kitchen</div>
+          <h2 class="section-title">Plated with <em>intention</em></h2>
+        </div>
+      </div>
+      <div class="gallery-grid reveal" id="galleryGrid"></div>
+    </section>
+
+    <!-- RESERVATIONS -->
+    <section id="reservations">
+      <div class="res-info reveal">
+        <div>
+          <div
+            class="section-label"
+            style="color: var(--charcoal); opacity: 0.5"
+          >
+            Book Your Table
+          </div>
+          <h2>Come.<br /><em>Eat.</em><br />Remember.</h2>
+        </div>
+        <div class="res-detail-list">
+          <div class="res-detail">
+            <span class="res-detail-label">Address</span>
+            <span class="res-detail-val">A.A</span>
+          </div>
+          <div class="res-detail">
+            <span class="res-detail-label">Hours</span>
+            <span class="res-detail-val">Mon–Sun · 6pm – 10:30pm</span>
+          </div>
+          <div class="res-detail">
+            <span class="res-detail-label">Reservations</span>
+            <span class="res-detail-val">+1 (555) 012-3456</span>
+          </div>
+          <div class="res-detail">
+            <span class="res-detail-label">Private Dining</span>
+            <span class="res-detail-val">hello@brasa.rest</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">Brasa</div>
+          <p class="footer-tagline">
+            Modern hearth cuisine, rooted in season and fire. An intimate space
+            for those who love to eat well.
+          </p>
+          <div class="footer-social">
+            <a class="social-btn" href="#" aria-label="Instagram">IG</a>
+            <a class="social-btn" href="#" aria-label="Facebook">FB</a>
+            <a class="social-btn" href="#" aria-label="Twitter">X</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#menu">Seasonal Menu</a></li>
+            <li><a href="#experience">The Experience</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Visit Us</h4>
+          <ul>
+            <li><a href="#">14 Ember Lane</a></li>
+            <li><a href="#">Old Quarter</a></li>
+            <li><a href="#">Tue–Sun, 6pm–10:30pm</a></li>
+            <li><a href="#">+1 (555) 012-3456</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>More</h4>
+          <ul>
+            <li><a href="#">Press & Media</a></li>
+            <li><a href="#">Private Events</a></li>
+            <li><a href="#">Gift Cards</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Suppliers</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy"
+          >© 2025 Brasa Restaurant · All rights reserved</span
+        >
+        <div class="footer-awards">
+          <span class="award">Michelin Guide 2025</span>
+          <span class="award">Best New Restaurant</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ── MARQUEE ──
+      const marqueeItems = [
+        "Wood-Fired Cuisine",
+        "Seasonal Ingredients",
+        "Natural Wines",
+        "Farm to Flame",
+        "Open Tue–Sun",
+        "Tasting Menu Available",
+        "Chef's Counter Seats",
+        "14 Ember Lane",
+      ];
+      const inner = document.getElementById("marqueeInner");
+      const all = [
+        ...marqueeItems,
+        ...marqueeItems,
+        ...marqueeItems,
+        ...marqueeItems,
+      ];
+      inner.innerHTML = all
+        .map((i) => `<span>${i}</span><span class="dot">✦</span>`)
+        .join("");
+
+      // ── MENU DATA ──
+      const menuItems = [
+        {
+          cat: "starters",
+          img: "https://loremflickr.com/200/200/appetizer,food?lock=1",
+          name: "Smoked Oyster",
+          desc: "Lightly cold-smoked, finger lime mignonette, crispy shallot.",
+          price: "$18",
+          tag: "Signature",
+        },
+        {
+          cat: "starters",
+          img: "https://loremflickr.com/200/200/salad,food?lock=2",
+          name: "Ember Beets",
+          desc: "Wood-roasted heritage beetroot, whipped goat cheese, hazelnut, aged balsamic.",
+          price: "$16",
+          tag: "Vegetarian",
+        },
+        {
+          cat: "starters",
+          img: "https://loremflickr.com/200/200/meat,food?lock=3",
+          name: "Wagyu Tartare",
+          desc: "Hand-cut A5 wagyu, truffle emulsion, quail egg, rye croutons.",
+          price: "$28",
+          tag: "Chef's Pick",
+        },
+        {
+          cat: "starters",
+          img: "https://loremflickr.com/200/200/bread,food?lock=4",
+          name: "Hearth Bread",
+          desc: "House-milled sourdough, cultured butter, smoked salt flakes.",
+          price: "$9",
+          tag: "",
+        },
+        {
+          cat: "mains",
+          img: "https://loremflickr.com/200/200/fish,food?lock=5",
+          name: "Coal-Kissed Sea Bass",
+          desc: "Wild-caught bass over charred corn purée, herb oil, sea vegetables.",
+          price: "$42",
+          tag: "Seasonal",
+        },
+        {
+          cat: "mains",
+          img: "images/gallery_ribeye_1779348975856.png",
+          name: "Prime Ribeye",
+          desc: "45-day dry-aged, bone marrow butter, roasted garlic, chimichurri.",
+          price: "$68",
+          tag: "Signature",
+        },
+        {
+          cat: "mains",
+          img: "https://loremflickr.com/200/200/risotto,food?lock=7",
+          name: "Wild Mushroom Risotto",
+          desc: "Foraged mushrooms, aged parmesan, truffle shavings, lemon gremolata.",
+          price: "$34",
+          tag: "Vegetarian",
+        },
+        {
+          cat: "mains",
+          img: "https://loremflickr.com/200/200/duck,food?lock=8",
+          name: "Duck à la Brasa",
+          desc: "Slow-cooked duck breast, fermented cherry, pickled daikon, duck jus.",
+          price: "$48",
+          tag: "Chef's Pick",
+        },
+        {
+          cat: "desserts",
+          img: "https://loremflickr.com/200/200/flan,dessert?lock=9",
+          name: "Smoked Caramel Flan",
+          desc: "Wood-smoked vanilla custard, sea salt caramel, candied nuts.",
+          price: "$15",
+          tag: "",
+        },
+        {
+          cat: "desserts",
+          img: "https://loremflickr.com/200/200/chocolate,cake?lock=10",
+          name: "Burnt Chocolate Cake",
+          desc: "Lava-style dark chocolate, charred vanilla ice cream, bitter cocoa.",
+          price: "$17",
+          tag: "Signature",
+        },
+        {
+          cat: "desserts",
+          img: "https://loremflickr.com/200/200/tart,dessert?lock=11",
+          name: "Stone Fruit Tarte",
+          desc: "Seasonal stone fruits, frangipane, crème fraîche, honey.",
+          price: "$14",
+          tag: "Seasonal",
+        },
+        {
+          cat: "desserts",
+          img: "https://loremflickr.com/200/200/cheese,board?lock=12",
+          name: "Cheese Board",
+          desc: "Selection of three artisan cheeses, honeycomb, fruit paste, crackers.",
+          price: "$22",
+          tag: "",
+        },
+      ];
+
+      let activeFilter = "all";
+      function renderMenu(filter) {
+        const grid = document.getElementById("menuGrid");
+        const items =
+          filter === "all"
+            ? menuItems
+            : menuItems.filter((i) => i.cat === filter);
+        grid.innerHTML = items
+          .map(
+            (i) => `
+    <div class="menu-item">
+      <img class="menu-item-photo" src="${i.img}" alt="${i.name}" loading="lazy" width="64" height="64" />
+      <div class="menu-item-header">
+        <div class="menu-item-name">${i.name}</div>
+        <div class="menu-item-price">${i.price}</div>
+      </div>
+      <div class="menu-item-desc">${i.desc}</div>
+      ${i.tag ? `<div class="menu-item-tag">${i.tag}</div>` : ""}
+    </div>`,
+          )
+          .join("");
+      }
+      renderMenu("all");
+
+      function filterMenu(cat, btn) {
+        document
+          .querySelectorAll(".menu-tab")
+          .forEach((t) => t.classList.remove("active"));
+        btn.classList.add("active");
+        renderMenu(cat);
+      }
+
+      // ── GALLERY ──
+      const galleryItems = [
+        {
+          img: "images/gallery_ribeye_1779348975856.png",
+          color: "rgba(176,74,26,0.3)",
+          title: "Aged Ribeye",
+          sub: "Mains",
+          cls: "tall",
+        },
+        {
+          img: "https://loremflickr.com/600/600/oyster,food",
+          color: "rgba(200,131,26,0.2)",
+          title: "Smoked Oyster",
+          sub: "Starters",
+          cls: "",
+        },
+        {
+          img: "https://loremflickr.com/600/600/dessert,flan",
+          color: "rgba(200,100,26,0.25)",
+          title: "Smoked Flan",
+          sub: "Desserts",
+          cls: "",
+        },
+        {
+          img: "images/about_herbs_1779348853052.png",
+          color: "rgba(80,130,60,0.2)",
+          title: "Garden Herbs",
+          sub: "Ingredients",
+          cls: "wide",
+        },
+        {
+          img: "images/about_fire_1779348635256.png",
+          color: "rgba(200,60,20,0.3)",
+          title: "The Hearth",
+          sub: "Kitchen",
+          cls: "",
+        },
+        {
+          img: "https://loremflickr.com/600/600/wine,glass",
+          color: "rgba(120,30,60,0.3)",
+          title: "Natural Wines",
+          sub: "Cellar",
+          cls: "",
+        },
+      ];
+      const gg = document.getElementById("galleryGrid");
+      gg.innerHTML = galleryItems
+        .map(
+          (g) => `
+  <div class="gallery-item ${g.cls}">
+    <div class="gallery-food food-photo" style="--glow-color:${g.color};background-image: url('${g.img}')">
+    </div>
+    <div class="gallery-overlay">
+      <div class="gallery-overlay-title">${g.title}</div>
+      <div class="gallery-overlay-sub">${g.sub}</div>
+    </div>
+  </div>`,
+        )
+        .join("");
+
+      // ── NAV SCROLL ──
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          .classList.toggle("scrolled", window.scrollY > 60);
+      });
+
+      // ── MOBILE MENU ──
+      function toggleMobileMenu() {
+        const m = document.getElementById("mobileMenu");
+        m.style.display = m.style.display === "flex" ? "none" : "flex";
+      }
+
+      // ── SCROLL REVEAL ──
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
